@@ -195,12 +195,6 @@ def main():
     mf:hasMonth "N/A" ;
     mf:hasYear "N/A" .
 
-<mf:Property_1> a mf:Property ;
-    mf:hasAddress <mf:PropertyAddress_1> ;
-    mf:hasName "COLLEGE COURTYARD APARTMENTS & RAIDER HOUSING" ;
-    mf:hasOwner "NORTHWEST FLORIDA STATE COLLEGE FOUNDATION" ;
-    mf:hasUnits "62"^^xsd:int .
-
 <mf:PropertyAddress1> a mf:PropertyAddress ;
     mf:hasCity "Niceville" ;
     mf:hasState "FL" ;
