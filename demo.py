@@ -48,10 +48,10 @@ def main():
             value="https://raw.githubusercontent.com/skarlekar/graph-visualizer/1927533f5b79fd1fd529944d77462553e7fe9bde/content/Appraisal-Report.pdf"
         )
 
-        ontology = st.text_area(
-            label="Ontology TTL",
-            height=400,
-            value=get_ontology(),
+        ontology = st.text_input(
+            label="Ontology Link", 
+            key="ontology_link",
+            value="https://raw.githubusercontent.com/skarlekar/graph-visualizer/main/ontologies/PropertyAppraisalOntology-v2.ttl"
         )
 
     with col2:
