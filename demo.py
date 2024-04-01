@@ -71,17 +71,18 @@ def main():
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
+<mf:Property_1> a mf:Property ;
+    mf:hasAddress <mf:PropertyAddress_1> ;
+    mf:hasAppraisal <mf:PropertyAppraisal_1> ;
+    mf:hasName "COLLEGE COURTYARD APARTMENTS & RAIDER HOUSING" ;
+    mf:hasOwner "NORTHWEST FLORIDA STATE COLLEGE FOUNDATION" ;
+    mf:hasUnits "62"^^xsd:int .
+
 <mf:PropertyAppraisal_1> a mf:PropertyAppraisal ;
     mf:hasAppraisalNumber "190416" ;
     mf:hasAppraiser <mf:PropertyAppraiser_1>,
         <mf:PropertyAppraiser_2> ;
     mf:hasTitle "APPRAISAL REPORT" .
-
-<mf:Property_1> a mf:Property ;
-    mf:hasAddress <mf:PropertyAddress_1> ;
-    mf:hasName "COLLEGE COURTYARD APARTMENTS & RAIDER HOUSING" ;
-    mf:hasOwner "NORTHWEST FLORIDA STATE COLLEGE FOUNDATION" ;
-    mf:hasUnits "62"^^xsd:int .
 
 <mf:PropertyAddress_1> a mf:PropertyAddress ;
     mf:hasCity "NICEVILLE" ;
@@ -112,11 +113,6 @@ def main():
     mf:hasName "College Courtyard Apartments & Raider Housing" ;
     mf:hasOwner "Northwest Florida State College Foundation" ;
     mf:hasUnits "62"^^xsd:int .
-
-<mf:PropertyInspectionDate1> a mf:PropertyInspectionDate ;
-    mf:hasDay "N/A" ;
-    mf:hasMonth "N/A" ;
-    mf:hasYear "N/A" .
 
 <mf:PropertyAddress1> a mf:PropertyAddress ;
     mf:hasCity "Niceville" ;
@@ -189,11 +185,6 @@ def main():
     mf:hasAppraiser <mf:PropertyAppraiser_1>,
         <mf:PropertyAppraiser_2> ;
     mf:hasTitle "APPRAISAL REPORT" .
-
-<mf:PropertyInspectionDate1> a mf:PropertyInspectionDate ;
-    mf:hasDay "N/A" ;
-    mf:hasMonth "N/A" ;
-    mf:hasYear "N/A" .
 
 <mf:PropertyAddress1> a mf:PropertyAddress ;
     mf:hasCity "Niceville" ;
