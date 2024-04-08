@@ -67,169 +67,118 @@ def main():
                 with tab1:
                     #prompt = construct_prompt(ontology=ontology, text=texts[0].page_content)
                     #response = llm.invoke(input=prompt)
-                    st.text(f"""@prefix mf: <http://example.org/mf> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-
-<mf:Property_1> a mf:Property ;
-    mf:hasAddress <mf:PropertyAddress_1> ;
-    mf:hasAppraisal <mf:PropertyAppraisal_1> ;
-    mf:hasName "COLLEGE COURTYARD APARTMENTS & RAIDER HOUSING" ;
-    mf:hasOwner "NORTHWEST FLORIDA STATE COLLEGE FOUNDATION" ;
-    mf:hasUnits "62"^^xsd:int .
-
-<mf:PropertyAppraisal_1> a mf:PropertyAppraisal ;
-    mf:hasAppraisalNumber "190416" ;
-    mf:hasAppraiser <mf:PropertyAppraiser_1>,
-        <mf:PropertyAppraiser_2> ;
-    mf:hasTitle "APPRAISAL REPORT" .
-
-<mf:PropertyAddress_1> a mf:PropertyAddress ;
-    mf:hasCity "NICEVILLE" ;
-    mf:hasState "FL" ;
-    mf:hasStreetName "GARDEN LANE" ;
-    mf:hasStreetNumber "28",
-        "30" ;
-    mf:hasZip "32578" .
-
-<mf:PropertyAppraiser_1> a mf:PropertyAppraiser ;
-    rdfs:label "Jason P. Shirey, MAI, CCIM, CPM" ;
-    mf:hasAppraisalLicense "RZ3186" .
-
-<mf:PropertyAppraiser_2> a mf:PropertyAppraiser ;
-    rdfs:label "Josette D. Jackson, CCIM" ;
-    mf:hasAppraisalLicense "RZ3275" .""")
+                    st.text(f"""@prefix ns1: <https://raw.githubusercontent.com/skarlekar/graph-visualizer/main/ontologies/> . 
+                    @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> . 
+                    
+                    <mf:PropertyAppraisal_1> a <mf:PropertyAppraisal> ; 
+                        ns1:hasAppraisedValue "current market value" ; 
+                        ns1:hasAppraiser "jason p. shirey, mai, ccim, cpm", "josette d. jackson, ccim" ; 
+                        ns1:hasDate "2019-04-16" ; 
+                        ns1:hasRemarks "equivalue appraisal llc professional appraisal and valuation services po box 5326 destin, florida 32540 phone (850) 424-6119" ; 
+                        ns1:hasTitle "appraisal report" . 
+                        
+                    <mf:PropertyBuildingType_1> a <mf:PropertyBuildingType> ; 
+                        rdfs:label "a 62 unit multi-family residential property" . 
+                    
+                    <mf:SubjectProperty_1> a <mf:SubjectProperty> ; 
+                        ns1:hasAddress <mf:PropertyAddress_1> ; 
+                        ns1:hasName "college courtyard apartments & raider housing" ; 
+                        ns1:hasUnits "62" . 
+                    
+                    <mf:PropertyAddress_1> a <mf:PropertyAddress> ; 
+                        ns1:hasCity "niceville" ; 
+                        ns1:hasState "fl" ; 
+                        ns1:hasStreetName "garden lane" ; 
+                        ns1:hasStreetNumber "28", "30" ; 
+                        ns1:hasZip "32578" .""")
                 
                 with tab2:
                     #prompt2 = construct_prompt(ontology=ontology, text=texts[1].page_content)
                     #response2 = llm.invoke(input=prompt2)
                     #st.divider()
-                    st.text(f"""@prefix mf: <http://example.org/mf> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-
-<mf:Property1> a mf:Property ;
-    mf:hasAddress <mf:PropertyAddress1> ;
-    mf:hasAppraisal <mf:PropertyAppraisal1> ;
-    mf:hasName "College Courtyard Apartments & Raider Housing" ;
-    mf:hasOwner "Northwest Florida State College Foundation" ;
-    mf:hasUnits "62"^^xsd:int .
-
-<mf:PropertyAddress1> a mf:PropertyAddress ;
-    mf:hasCity "Niceville" ;
-    mf:hasState "FL" ;
-    mf:hasStreetName "Garden Lane" ;
-    mf:hasStreetNumber "28",
-        "30" ;
-    mf:hasZip "32578" .
-
-<mf:PropertyAppraisal1> a mf:PropertyAppraisal ;
-    mf:hasAppraisedValue "N/A" ;
-    mf:hasAppraiser "Jason P. Shirey, MAI, CCIM",
-        "Josette D. Jackson, CCIM" ;
-    mf:hasDate <mf:PropertyAppraisalDate1> ;
-    mf:hasRemarks "Of Existing Multi-Family Property" ;
-    mf:hasTitle "APPRAISAL REPORT" .
-
-<mf:PropertyAppraisalDate1> a mf:PropertyAppraisalDate ;
-    mf:hasDay 13 ;
-    mf:hasMonth "December" ;
-    mf:hasYear 2019 .""")
+                    st.text(f"""@prefix ns1: <https://raw.githubusercontent.com/skarlekar/graph-visualizer/main/ontologies/> . 
+                    
+                    <mf:PropertyAppraisalDate_1> a <mf:PropertyAppraisalDate> ; 
+                        ns1:hasDay "10" ; 
+                        ns1:hasMonth "january" ; 
+                        ns1:hasYear "2020" . 
+                    
+                    <mf:PropertyAppraisal_1> a <mf:PropertyAppraisal> ; 
+                        ns1:hasAppraisedValue "current market value" ; 
+                        ns1:hasAppraiser "jason p. shirey, mai, ccim state certified general real estate appraiser rz3186", "josette d. jackson, ccim state certified general real estate appraiser rz3275" ; 
+                        ns1:hasDate "2019-12-13" ; 
+                        ns1:hasRemarks "of existing multi-family property" ; 
+                        ns1:hasTitle "appraisal report" . 
+                    
+                    <mf:PropertyInspectionDate_1> a <mf:PropertyInspectionDate> ; 
+                        ns1:hasDay "13" ; ns1:hasMonth "december" ; 
+                        ns1:hasYear "2019" . 
+                    
+                    <mf:SubjectProperty_1> a <mf:SubjectProperty> ; 
+                        ns1:hasAddress <mf:PropertyAddress_1> ; 
+                        ns1:hasName "college courtyard apartments & raider housing" ; 
+                        ns1:hasOwner "ms. cristie kedroski vice president of college advancement northwest florida state college foundation" ; 
+                        ns1:hasUnits "62 unit multi-family property" . 
+                    
+                    <mf:PropertyAddress_1> a <mf:PropertyAddress> ; 
+                        ns1:hasCity "niceville" ; 
+                        ns1:hasState "fl" ; 
+                        ns1:hasStreetName "garden lane" ; 
+                        ns1:hasStreetNumber "28", "30" ; 
+                        ns1:hasZip "32578" .""")
                 
                 with tab3:
                     #st.divider()
                     #joined_graph = join_graphs(graph1=response.content, graph2=response2.content, llm=llm)
-                    st.text(f"""@prefix mf: <http://example.org/mf> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-
-<mf:Property1> a mf:Property ;
-    mf:hasAddress <mf:PropertyAddress1> ;
-    mf:hasAppraisal <mf:PropertyAppraisal1> ;
-    mf:hasName "College Courtyard Apartments & Raider Housing" ;
-    mf:hasOwner "Northwest Florida State College Foundation" ;
-    mf:hasUnits "62"^^xsd:int .
-
-<mf:PropertyAddress1> a mf:PropertyAddress ;
-    mf:hasCity "Niceville" ;
-    mf:hasState "FL" ;
-    mf:hasStreetName "Garden Lane" ;
-    mf:hasStreetNumber "28"^^xsd:string,
-        "30"^^xsd:string ;
-    mf:hasZip "32578" .
-
-<mf:PropertyAppraisal1> a mf:PropertyAppraisal ;
-    mf:hasAppraisedValue "Current Market Value" ;
-    mf:hasAppraiser "EquiValue Appraisal LLC" ;
-    mf:hasDate <mf:PropertyAppraisalDate1> ;
-    mf:hasRemarks "File No. EQ 190416" ;
-    mf:hasTitle "Appraisal of College Courtyard Apartments & Raider Housing" .
-
-<mf:PropertyAppraisalDate1> a mf:PropertyAppraisalDate ;
-    mf:hasDay "13"^^xsd:int ;
-    mf:hasMonth "December" ;
-    mf:hasYear "2019"^^xsd:int .""")
+                    st.text(f"""@prefix ns1: <https://raw.githubusercontent.com/skarlekar/graph-visualizer/main/ontologies/> . 
+                    @prefix xsd: <http://www.w3.org/2001/XMLSchema#> . 
+                    
+                    <mf:PropertyAppraisalDate_1> a <mf:PropertyAppraisalDate> ; 
+                        ns1:hasDay "13"^^<mf:PropertyAppraisalDay> ; 
+                        ns1:hasMonth "12"^^<mf:PropertyAppraisalMonth> ; 
+                        ns1:hasYear "2019"^^<mf:PropertyAppraisalYear> . 
+                    
+                    <mf:PropertyAppraisal_1> a <mf:PropertyAppraisal> ; 
+                        ns1:hasAppraisedValue "Five Million Dollars ($5,000,000)"^^<mf:NamedEntity> ; 
+                        ns1:hasAppraiser "Jason P. Shirey, MAI , CCIM"^^<mf:NamedEntity>, "Josette D. Jackson , CCIM"^^<mf:NamedEntity> ; 
+                        ns1:hasDate "2019-12-13"^^<mf:PropertyAppraisalDate> ; 
+                        ns1:hasRemarks "The estimated market exposure period necessary for the subject to have achieved this value is estimated to be 9-12 months ."^^<mf:PropertyAppraisalRemarks> ; 
+                        ns1:hasTitle "Current Market Value of the Fee Simple Interest In the Subject Property, In 'As Is' Condition, As of December 13, 2019"^^xsd:string .""")
                 
                 with tab4:
-                    st.text(f"""@prefix mf: <http://example.org/mf> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-
-<mf:Property1> a mf:Property ;
-    mf:hasAddress <mf:PropertyAddress1> ;
-    mf:hasAppraisal <mf:PropertyAppraisal1> ;
-    mf:hasName "College Courtyard Apartments & Raider Housing" ;
-    mf:hasOwner "Northwest Florida State College Foundation" ;
-    mf:hasUnits "62"^^xsd:int .
-
-<mf:PropertyAppraisal_1> a mf:PropertyAppraisal ;
-    mf:hasAppraisalNumber "190416" ;
-    mf:hasAppraiser <mf:PropertyAppraiser_1>,
-        <mf:PropertyAppraiser_2> ;
-    mf:hasTitle "APPRAISAL REPORT" .
-
-<mf:PropertyAddress1> a mf:PropertyAddress ;
-    mf:hasCity "Niceville" ;
-    mf:hasState "FL" ;
-    mf:hasStreetName "Garden Lane" ;
-    mf:hasStreetNumber "28",
-        "28"^^xsd:string,
-        "30",
-        "30"^^xsd:string ;
-    mf:hasZip "32578" .
-
-<mf:PropertyAddress_1> a mf:PropertyAddress ;
-    mf:hasCity "NICEVILLE" ;
-    mf:hasState "FL" ;
-    mf:hasStreetName "GARDEN LANE" ;
-    mf:hasStreetNumber "28",
-        "30" ;
-    mf:hasZip "32578" .
-
-<mf:PropertyAppraisal1> a mf:PropertyAppraisal ;
-    mf:hasAppraisedValue "Current Market Value",
-        "N/A" ;
-    mf:hasAppraiser "EquiValue Appraisal LLC",
-        "Jason P. Shirey, MAI, CCIM",
-        "Josette D. Jackson, CCIM" ;
-    mf:hasDate <mf:PropertyAppraisalDate1> ;
-    mf:hasRemarks "File No. EQ 190416",
-        "Of Existing Multi-Family Property" ;
-    mf:hasTitle "APPRAISAL REPORT",
-        "Appraisal of College Courtyard Apartments & Raider Housing" .
-
-<mf:PropertyAppraisalDate1> a mf:PropertyAppraisalDate ;
-    mf:hasDay 13,
-        "13"^^xsd:int ;
-    mf:hasMonth "December" ;
-    mf:hasYear 2019,
-        "2019"^^xsd:int .
-
-<mf:PropertyAppraiser_1> a mf:PropertyAppraiser ;
-    rdfs:label "Jason P. Shirey, MAI, CCIM, CPM" ;
-    mf:hasAppraisalLicense "RZ3186" .
-
-<mf:PropertyAppraiser_2> a mf:PropertyAppraiser ;
-    rdfs:label "Josette D. Jackson, CCIM" ;
-    mf:hasAppraisalLicense "RZ3275" .""")
+                    st.text(f"""@prefix ns1: <https://raw.githubusercontent.com/skarlekar/graph-visualizer/main/ontologies/> . 
+                    @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> . 
+                    
+                    <mf:PropertyAppraisalDate_1> a <mf:PropertyAppraisalDate> ; 
+                        ns1:hasDay "10" ; ns1:hasMonth "january" ; 
+                        ns1:hasYear "2020" . 
+                    
+                    <mf:PropertyAppraisal_1> a <mf:PropertyAppraisal> ; 
+                        ns1:hasAppraisedValue "current market value" ; 
+                        ns1:hasAppraiser "jason p. shirey, mai, ccim state certified general real estate appraiser rz3186", "jason p. shirey, mai, ccim, cpm", "josette d. jackson, ccim", "josette d. jackson, ccim state certified general real estate appraiser rz3275" ; 
+                        ns1:hasDate "2019-04-16", "2019-12-13" ; 
+                        ns1:hasRemarks "equivalue appraisal llc professional appraisal and valuation services po box 5326 destin, florida 32540 phone (850) 424-6119", "of existing multi-family property" ; 
+                        ns1:hasTitle "appraisal report" . 
+                    
+                    <mf:PropertyBuildingType_1> a <mf:PropertyBuildingType> ; 
+                        rdfs:label "a 62 unit multi-family residential property" . 
+                    
+                    <mf:PropertyInspectionDate_1> a <mf:PropertyInspectionDate> ; 
+                        ns1:hasDay "13" ; 
+                        ns1:hasMonth "december" ; 
+                        ns1:hasYear "2019" . 
+                    
+                    <mf:SubjectProperty_1> a <mf:SubjectProperty> ; 
+                        ns1:hasAddress <mf:PropertyAddress_1> ; 
+                        ns1:hasName "college courtyard apartments & raider housing" ; 
+                        ns1:hasOwner "ms. cristie kedroski vice president of college advancement northwest florida state college foundation" ; 
+                        ns1:hasUnits "62", "62 unit multi-family property" . 
+                    
+                    <mf:PropertyAddress_1> a <mf:PropertyAddress> ; 
+                        ns1:hasCity "niceville" ; 
+                        ns1:hasState "fl" ; 
+                        ns1:hasStreetName "garden lane" ; ns1:hasStreetNumber "28", "30" ; 
+                        ns1:hasZip "32578" .""")
             else:
                 st.error('Document or ontology is missing', icon="🚨")
 
