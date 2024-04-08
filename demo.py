@@ -150,7 +150,8 @@ def main():
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> . 
 
 <mf:PropertyAppraisalDate_1> a <mf:PropertyAppraisalDate> ; 
-    ns1:hasDay "10" ; ns1:hasMonth "january" ; 
+    ns1:hasDay "10" ; 
+    ns1:hasMonth "january" ; 
     ns1:hasYear "2020" . 
 
 <mf:PropertyAppraisal_1> a <mf:PropertyAppraisal> ; 
@@ -177,7 +178,8 @@ def main():
 <mf:PropertyAddress_1> a <mf:PropertyAddress> ; 
     ns1:hasCity "niceville" ; 
     ns1:hasState "fl" ; 
-    ns1:hasStreetName "garden lane" ; ns1:hasStreetNumber "28", "30" ; 
+    ns1:hasStreetName "garden lane" ; 
+    ns1:hasStreetNumber "28", "30" ; 
     ns1:hasZip "32578" .""")
             else:
                 st.error('Document or ontology is missing', icon="🚨")
